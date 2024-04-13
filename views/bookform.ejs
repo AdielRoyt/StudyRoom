@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    input, button {
+        display:block;
+        margin:8px 0px;            
+        font-size:16px;
+        padding:8px 12px;
+    }
+    </style>
+
+</head>
+<body>
+    <h1>Booking Form</h1>
+    <form action="/book" method="POST">
+        <label>Userid</label>
+
+        <input name ="userid" type="text" placeholder="Enter user id"/>
+
+        <label>Room Number:</label>
+
+        <input name="room" type="text" placeholder="Room number not available" value="<%=room%>"/>
+
+        <label>Timeslot:</label>
+
+        <% if(timeslot === "0") {%>
+        <input name="timeslot" type="text" placeholder="Time slot not available" value="morning"/>
+        <%}else if(timeslot === "1") {%>
+        <input name="timeslot" type="text" placeholder="Time slot not available" value="afternoon"/>
+        <%}else{%>
+        <input name="timeslot" type="text" placeholder="Time slot not available" value="evening"/>
+        <%}%>
+        <button>Book</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,17 @@
+
+
+.label
+{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    margin:10px;
+    padding-right:130px;
+}
+
+.flex-item
+{
+    display:flex;
+    width:65px;
+    
+}

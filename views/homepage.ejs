@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>List of Study Rooms</h1>
+
+    <div class="label" style="font-weight:bold">
+        <p class="flex-item">Room</p>
+        <p class="flex-item">Morning</p>
+        <p class="flex-item">Afternoon</p>
+        <p class="flex-item">Evening</p>
+    </div>
+    <hr>
+
+    <% for(let i = 0; i < studyRooms.length; i++) {%>
+        <div class="label">
+            <p class="flex-item"><%=studyRooms[i].room%></p>
+
+            <% for(let j = 0; j < 3; j++) {%>
+            <% if(studyRooms[i].bookings[j].length == 0){ %>
+            <p class="flex-item"><a href="/bookform/<%=studyRooms[i].room%>/<%=j%>">Book</a></p>
+            <% } else{ %>
+            <p class="flex-item">Unavailable <span style="background-color:yellow">(<%=studyRooms[i].bookings[j]%>)</span></p>
+            <% } %>
+            <% } %>
+
+        </div>
+
+        <hr>
+    <%}%>
+    <form method="POST" action="/cancel">
+        <h2>Cancel All Bookings</h2>
+        <button>Cancel Bookings</button>
+    </form>
+</body>
+</html>
